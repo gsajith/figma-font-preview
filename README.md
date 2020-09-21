@@ -1,5 +1,7 @@
 # Figma Plugin Material-UI React Template
 
+![Logo](https://github.com/gsajith/figma-plugin-material-ui-template/blob/master/Logo.png?raw=true)
+
 Based on [nirsky/Figma Plugin React Template](https://github.com/nirsky/figma-plugin-react-template) but with [Material-UI](https://material-ui.com/) added.
 
 This template contains the react example as shown on [Figma Docs](https://www.figma.com/plugin-docs/intro/), with some structural changes and extra tooling.

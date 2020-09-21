@@ -1,9 +1,19 @@
 import * as React from 'react';
 import '../styles/ui.css';
+import Button from '@material-ui/core/Button';
+import {withStyles, useTheme} from '@material-ui/core/styles';
 
 declare function require(path: string): any;
 
-const App = ({}) => {
+const styles = theme => ({
+    main: {
+        margin: theme.spacing(3),
+    },
+});
+
+const App = ({classes}) => {
+    const theme = useTheme();
+
     const textbox = React.useRef<HTMLInputElement>(undefined);
 
     const countRef = React.useCallback((element: HTMLInputElement) => {
@@ -22,27 +32,29 @@ const App = ({}) => {
 
     React.useEffect(() => {
         // This is how we read messages sent from the plugin controller
-        window.onmessage = (event) => {
-            const { type, message } = event.data.pluginMessage;
+        window.onmessage = event => {
+            const {type, message} = event.data.pluginMessage;
             if (type === 'create-rectangles') {
                 console.log(`Figma Says: ${message}`);
-            };
-        }
+            }
+        };
     }, []);
 
     return (
-        <div>
+        <div className={classes.main}>
             <img src={require('../assets/logo.svg')} />
             <h2>Rectangle Creator</h2>
             <p>
                 Count: <input ref={countRef} />
             </p>
-            <button id="create" onClick={onCreate}>
+            <Button style={{color: theme.palette.secondary.main}} onClick={onCancel}>
+                Cancel
+            </Button>
+            <Button id="create" variant="contained" color="primary" onClick={onCreate}>
                 Create
-            </button>
-            <button onClick={onCancel}>Cancel</button>
+            </Button>
         </div>
     );
 };
 
-export default App;
+export default withStyles(styles)(App);

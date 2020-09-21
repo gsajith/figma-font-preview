@@ -4,7 +4,7 @@
 
 Based on [nirsky/Figma Plugin React Template](https://github.com/nirsky/figma-plugin-react-template) but with [Material-UI](https://material-ui.com/) added.
 
-This template contains the react example as shown on [Figma Docs](https://www.figma.com/plugin-docs/intro/), with some structural changes and extra tooling.
+This template contains the React example as shown on [Figma Docs](https://www.figma.com/plugin-docs/intro/), with some structural changes and extra tooling. This template also adds examples for how to use Material-UI's theming and components.
 
 ## Quickstart
 * Run `yarn` to install dependencies.

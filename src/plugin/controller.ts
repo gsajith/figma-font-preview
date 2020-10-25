@@ -84,7 +84,6 @@ figma.ui.onmessage = (msg) => {
 };
 
 const loadFont = async (font, node) => {
-  // TODO: This could be better
   let fontStyles = [
     "Regular",
     "Book",
@@ -101,23 +100,27 @@ const loadFont = async (font, node) => {
   ];
   let assigned = false;
   for (let index = 0; index < fontStyles.length; index++) {
-    console.log("Trying font with " + font + " " + fontStyles[index]);
+    // console.log("Trying font with " + font + " " + fontStyles[index]);
     figma
       .loadFontAsync({ family: font, style: fontStyles[index] })
       .then(() => {
-        node.fontName = { family: font, style: fontStyles[index] };
-        index = fontStyles.length;
-        console.log("Success!");
-        assigned = true;
+        if (!assigned) {
+          node.fontName = { family: font, style: fontStyles[index] };
+          index = fontStyles.length;
+          console.log("Success!");
+          assigned = true;
+        }
         return;
       })
-      .catch((error) => {
-        console.log(error + ". Will try with another font style 🤞");
-        if (index == fontStyles.length - 1) {
-          for (let fontIndex in fonts) {
-            if (fonts[fontIndex].fontName.family === font) {
-              if (fontStyles.indexOf(fonts[fontIndex].fontName.style) < 0) {
-                fontStyles.push(fonts[fontIndex].fontName.style);
+      .catch((_) => {
+        if (!assigned) {
+          // console.error(error + ". Will try with another font style 🤞");
+          if (index == fontStyles.length - 1) {
+            for (let fontIndex in fonts) {
+              if (fonts[fontIndex].fontName.family === font) {
+                if (fontStyles.indexOf(fonts[fontIndex].fontName.style) < 0) {
+                  fontStyles.push(fonts[fontIndex].fontName.style);
+                }
               }
             }
           }

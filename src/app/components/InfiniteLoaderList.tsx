@@ -6,7 +6,7 @@ import FontPreviewRow from "./FontPreviewRow";
 import { FontLoad, ListType } from "../util/types";
 import debounceRender from "react-debounce-render";
 
-const styles = (theme) => ({
+const styles = (_: any) => ({
   list: {
     overflowX: "hidden !important",
   },
@@ -134,4 +134,7 @@ const InfiniteLoaderList = ({
   );
 };
 
-export default debounceRender(withStyles(styles)(InfiniteLoaderList), 100);
+export default debounceRender(
+  withStyles(styles as any)(InfiniteLoaderList),
+  100,
+);

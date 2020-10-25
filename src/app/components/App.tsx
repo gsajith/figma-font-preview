@@ -169,10 +169,10 @@ const App = ({ classes }) => {
       inactive: function() {
         // console.log('inactive');
       },
-      fontloading: function(familyName, fvd) {
+      fontloading: function(_: any, __: any) {
         // console.log('fontLoading ' + familyName + ' ' + fvd);
       },
-      fontinactive: function(familyName, fvd) {
+      fontinactive: function(familyName, __: any) {
         // console.log("Couldn't load: " + familyName + " " + fvd);
         // TODO: Debounce this?
         setFontNames((fontNames) => {
@@ -189,7 +189,7 @@ const App = ({ classes }) => {
           }
         });
       },
-      fontactive: function(familyName, fvd) {
+      fontactive: function(familyName, _: any) {
         // console.log('Loaded ' + familyName + " " + fvd);
         // TODO: Debounce this?
         setFontNames((fontNames) => {
@@ -312,7 +312,7 @@ const App = ({ classes }) => {
     };
   }
 
-  const handleChangeTab = (event, newValue) => {
+  const handleChangeTab = (_: any, newValue: React.SetStateAction<number>) => {
     setSelectedTab(newValue);
   };
 
@@ -480,4 +480,4 @@ const App = ({ classes }) => {
   );
 };
 
-export default withStyles(styles)(App);
+export default withStyles(styles as any)(App);

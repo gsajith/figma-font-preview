@@ -116,4 +116,4 @@ const FontPreviewRow = ({
   );
 };
 
-export default withStyles(styles)(FontPreviewRow);
+export default withStyles(styles as any)(FontPreviewRow);

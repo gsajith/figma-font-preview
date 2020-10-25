@@ -1,6 +1,6 @@
 {
-  "name": "Material-UI Figma Plugin Template",
-  "id": "00000000",
+  "name": "Font Preview",
+  "id": "890494567122693015",
   "api": "1.0.0",
   "main": "dist/code.js",
   "ui": "dist/ui.html"

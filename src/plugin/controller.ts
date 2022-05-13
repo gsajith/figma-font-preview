@@ -1,4 +1,4 @@
-figma.showUI(__html__, { height: 640, width: 350 });
+figma.showUI(__html__, { height: 640, width: 350, themeColors: true });
 
 const favorites = [];
 let fonts = [];

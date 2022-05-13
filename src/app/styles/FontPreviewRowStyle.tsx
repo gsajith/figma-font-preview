@@ -12,7 +12,7 @@ const styles = (theme) => ({
     borderRadius: 8,
     cursor: "pointer",
     outline: "none",
-    border: "1px solid " + theme.palette.background.paper,
+    border: "1px solid var(--figma-color-text-tertiary)",
     "&:hover": {
       border: "1px solid " + theme.palette.action.disabled,
     },
@@ -64,7 +64,7 @@ const styles = (theme) => ({
     },
   },
   fontFamily: {
-    opacity: 0.4,
+    opacity: 0.7,
     textTransform: "uppercase",
     fontSize: ".5em",
     display: "inline-block",
@@ -73,11 +73,11 @@ const styles = (theme) => ({
     cursor: "pointer",
     "&:hover": {
       textDecoration: "underline dotted",
-      opacity: 0.7,
+      opacity: 1,
     },
   },
   error: {
-    color: theme.palette.secondary.main,
+    color: "var(--figma-color-icon-danger)",
   },
   helpIcon: {
     width: ".5em",

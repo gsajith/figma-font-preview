@@ -19,14 +19,15 @@ const styles = (theme) => ({
     padding: theme.spacing(2),
     paddingTop: 0,
     paddingBottom: 0,
+    color: "var(--figma-color-text)",
   },
   header: {
     padding: theme.spacing(2),
     paddingBottom: 0,
-    background: theme.palette.background.paper,
     boxShadow: "0px 0px 8px 0px rgba(0,0,0,0.48)",
     position: "relative",
     zIndex: 3,
+    color: "var(--figma-color-text)",
   },
   previewTextField: {
     marginTop: theme.spacing(1),
@@ -43,6 +44,25 @@ const styles = (theme) => ({
   },
   tabBar: {},
 });
+
+const CssTextField = withStyles({
+  root: {
+    "& .MuiInputBase-input": {
+      color: "var(--figma-color-text)",
+    },
+    "& .MuiFormLabel-root": {
+      color: "var(--figma-color-text-secondary)",
+    },
+    "& .MuiOutlinedInput-root": {
+      "& fieldset": {
+        borderColor: "var(--figma-color-border)",
+      },
+      "&:hover fieldset": {
+        borderColor: "var(--figma-color-border-strong)",
+      },
+    },
+  },
+})(TextField);
 
 const TabPanel = ({ children, value, index, ...other }) => {
   return (
@@ -322,7 +342,7 @@ const App = ({ classes }) => {
   return (
     <>
       <div className={classes.header}>
-        <TextField
+        <CssTextField
           className={classes.previewTextField}
           id="standard-basic"
           label="Preview text"
@@ -432,9 +452,9 @@ const App = ({ classes }) => {
             </div>
           )}
 
-          <TextField
+          <CssTextField
             className={classes.previewTextField}
-            style={{ marginTop: theme.spacing(2) }}
+            style={{ marginTop: theme.spacing(3) }}
             id="standard-basic"
             label="Search font"
             variant="outlined"
@@ -445,7 +465,9 @@ const App = ({ classes }) => {
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
-                  <SearchRoundedIcon style={{ opacity: 0.5 }} />
+                  <SearchRoundedIcon
+                    style={{ opacity: 0.5, color: "var(--figma-color-text)" }}
+                  />
                 </InputAdornment>
               ),
             }}
